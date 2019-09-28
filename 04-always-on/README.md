@@ -65,6 +65,20 @@ SELECT 'Connected to Primary = '+@@SERVERNAME;USE testag;
 SELECT * FROM ilovesql;
 ```
 
+## Recovery (HA)
+
+```
+kubectl get pods -o wide --watch
+```
+```
+POD=$(kubectl get pods | grep mssql-deployment | awk {'print $1'})
+kubectl delete pod $POD
+```
+
+```
+SELECT @@VERSION
+```
+
 ## Failover (Chaos Engineering)
 
 ```

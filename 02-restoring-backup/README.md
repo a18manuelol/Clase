@@ -12,6 +12,7 @@ SELECT @@VERSION
 ./download-bkp.sh
 POD=$(kubectl get pods | grep mssql-deployment | awk {'print $1'})
 kubectl cp ./WideWorldImporters-Full.bak $POD:/var/opt/mssql/WideWorldImporters-Full.bak
+kubectl exec -it $POD -- /bin/bash
 ```
 
 ## Restore Backup
