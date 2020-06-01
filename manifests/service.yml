@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+    name: "onride"
+    labels:
+        app: "onride"
+spec:
+    type: LoadBalancer
+    ports:
+    - port: 1433
+      targetPort: http
+      protocol: TCP
+      name: http
+    selector:
+        app: "onride"
